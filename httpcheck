@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for host in $(cat /dev/stdin)
+do
+	status_code=$(curl -sL --connect-timeout 3 --write-out %{http_code} --silent --output /dev/null $host)
+	[ $status_code = "200" ] && printf "%s\n" $host
+done
