@@ -3,8 +3,8 @@ Take a list of domains and probe for working HTTP and HTTPS servers
 Depends on `xargs`, `curl`, `sh`  
 
 ## Quick: just create an alias
-Primarily it's just a wrapper around curl with xargs for parallization. 
-You could actually just create your own alias in the shell and call it that way:
+It's just a wrapper around curl with xargs for parallization. 
+You can just create your own alias in the shell and call it that way:
 ```
 alias httpcheck="xargs -n1 -P5 curl --connect-timeout 3 -sLI -o /dev/null --write-out '%{http_code}\t%{url_effective}\n' < /dev/stdin"
 
