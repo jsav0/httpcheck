@@ -1,6 +1,6 @@
 #!/bin/sh
-for host in $(cat /dev/stdin)
+while read host
 do
-	status_code=$(curl -sL --connect-timeout 3 --write-out %{http_code} --silent --output /dev/null $host)
-	[ $status_code = "200" ] && printf "%s\n" $host
-done
+	{ error=$( { curl -IL --no-progress-meter -o /dev/null --write-out '%{http_code}' "$host" 1>&3 ; } 2>&1); } 3>&1
+	printf "\t%s\t%s\n" "$host" "$error"
+done < ${host:-/dev/stdin}
