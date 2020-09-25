@@ -10,15 +10,11 @@ chmod +x /usr/local/bin/httpcheck
 ```
 
 ## Basic Usage
+
 ```
 httpcheck < domains.txt
-
-# or
-
-cat domains.txt | httpcheck
-
-# or
-
+```
+```
 subfinder -d yahoo.com -silent | head -n20 | httpcheck -v
 ```
 
@@ -34,9 +30,6 @@ http://src.g03.yahoodns.net
 ## Verbose
 By default, the script outputs just the domains that return a status code 200. It will follow 301s attempting to get there.   
 If you would like more verbose output, ie., if you want to see the final status codes being returned, pass the `-v` flag. 
-```
-cat targets.txt | httpcheck -v
-```
 
 ### Example Output
 ```
