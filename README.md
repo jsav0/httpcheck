@@ -10,10 +10,14 @@ chmod +x /usr/local/bin/httpcheck
 ```
 
 ## Basic Usage
-
+Simple usage:  
 ```
 httpcheck < domains.txt
 ```
+```
+cat targets.txt | httpcheck
+```
+Pipe from other commands:  
 ```
 $ subfinder -d yahoo.com -silent | head -n20 | httpcheck -v
 http://66.218.84.137
