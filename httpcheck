@@ -1,6 +1,23 @@
 #!/bin/sh
+# take a list of domains and probe for working http[s] servers
+main(){
+	echo "starting main"
+	while read host
+	do
+		status_code=$(curl -sLI -o /dev/null --write-out '%{http_code}' "$host" )
+		[ "$status_code" = "200" ] && printf "%s\n" "$host" 
+	done < /dev/stdin
+}
+
+verbose(){
 while read host
 do
 	{ error=$( { curl -IL --no-progress-meter -o /dev/null --write-out '%{http_code}' "$host" 1>&3 ; } 2>&1); } 3>&1
 	printf "\t%s\t%s\n" "$host" "$error"
-done < ${host:-/dev/stdin}
+done < /dev/stdin
+}
+
+case $1 in
+	-v) verbose;;
+	*) main;;
+esac
