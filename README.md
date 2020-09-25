@@ -16,6 +16,10 @@ httpcheck < domains.txt
 # or
 
 cat domains.txt | httpcheck
+
+# or
+
+subfinder -d yahoo.com -silent | head -n20 | httpcheck -v
 ```
 
 ```
