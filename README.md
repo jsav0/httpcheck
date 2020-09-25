@@ -2,7 +2,7 @@
 Take a list of domains and probe for working HTTP and HTTPS servers  
 Depends on `xargs`, `curl`, `sh`  
 
-## Quick, create an alias
+## Quick: just create an alias
 Primarily it's just a wrapper around curl with xargs for parallization. 
 You could actually just create your own alias in the shell and call it that way:
 ```
