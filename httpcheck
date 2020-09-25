@@ -1,7 +1,6 @@
 #!/bin/sh
 # take a list of domains and probe for working http[s] servers
 main(){
-	echo "starting main"
 	while read host
 	do
 		status_code=$(curl -sLI -o /dev/null --write-out '%{http_code}' "$host" )
