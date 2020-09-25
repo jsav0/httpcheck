@@ -15,11 +15,7 @@ chmod +x /usr/local/bin/httpcheck
 httpcheck < domains.txt
 ```
 ```
-subfinder -d yahoo.com -silent | head -n20 | httpcheck -v
-```
-
-```
-$ cat targets.txt | httpcheck
+$ subfinder -d yahoo.com -silent | head -n20 | httpcheck -v
 http://66.218.84.137
 http://74.6.136.150
 http://98.137.11.143
