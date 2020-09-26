@@ -10,6 +10,7 @@ alias httpcheck="xargs -n1 -P5 curl --connect-timeout 3 -sLI -o /dev/null --writ
 
 cat targets.txt | httpcheck
 ```
+I recommend splitting large lists into chunks
 
 ## Install
 ### download the script to $PATH
